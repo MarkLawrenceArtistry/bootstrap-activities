@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        /* * {
+            border: 1px solid red;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container" id="catalog">
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        const catalogDiv = document.querySelector('#catalog');
+        const data = [
+            {
+                title: "Item 1",
+                price: "P20",
+                desc: "Lorem ipsum.."
+            },
+            {
+                title: "Item 2",
+                price: "P35",
+                desc: "Lorem ipsum.."
+            },
+            {
+                title: "Item 3",
+                price: "P50",
+                desc: "Lorem ipsum.."
+            },
+            {
+                title: "Item 4",
+                price: "P215",
+                desc: "Lorem ipsum.."
+            },
+            {
+                title: "Item 5",
+                price: "P26",
+                desc: "Lorem ipsum.."
+            },
+            {
+                title: "Item 6",
+                price: "P80",
+                desc: "Lorem ipsum.."
+            },
+        ]
+        if(catalogDiv) {
+            const row = document.createElement('div');
+            row.classList.add('row', 'row-cols-sm-1', 'row-cols-md-2', 'row-cols-lg-3', 'row-cols-1', 'g-4');
+
+            data.forEach(item => {
+                const column = document.createElement('div');
+                column.classList.add('col');
+
+                const card = document.createElement('div');
+                card.classList.add('border', 'p-3', 'h-100');
+
+                card.innerHTML = `
+                    <p>${item.title}</p>
+                    <p>${item.price}</p>
+                    <p>${item.desc}</p>
+                `;
+
+                column.appendChild(card)
+                row.appendChild(column)
+            })
+
+            catalogDiv.appendChild(row);
+        }
+    </script>
+</body>
+</html>
