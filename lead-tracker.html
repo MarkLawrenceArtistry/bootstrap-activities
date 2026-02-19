@@ -6,9 +6,9 @@
     <title>Leads Tracker</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <style>
-        * {
-            /* border: 1px solid red; */
-        }
+        /* * {
+            border: 1px solid red;
+        } */
 
         .container {
             padding: 10px;
@@ -114,6 +114,11 @@
 
             function renderLeadsTable(data) {
                 leadsTableWrapper.innerHTML = ``;
+
+                if(data.length < 1) {
+                    leadsTableWrapper.innerHTML = `<p>Nothing to show yet. Add a lead!</p>`;
+                    return;
+                }
 
                 const table = document.createElement('table');
                 table.classList.add("table", "table-hover", "table-bordered");
